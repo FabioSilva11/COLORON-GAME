@@ -45,12 +45,15 @@ class Game {
     $('.scene .ball-holder').append('<div class="ball red" id="ball"></div>');
     this.bounce();
   }
-
-  generateTweet() {
+  
+generateTweet() {
     let top = $(window).height() / 2 - 150;
     let left = $(window).width() / 2 - 300;
-    window.open("https://fabiosilva11.github.io/COLORON-GAME/" + this.score + " points on Coloron! Can you beat my score?&amp;via=greghvns&amp;hashtags=coloron", "TweetWindow", "width=600px,height=300px,top=" + top + ",left=" + left);
-  }
+    window.open("https://twitter.com/intent/tweet?url=https://fabiosilva11.github.io/COLORON-GAME/;text=Eu fiz "+ this.score +" pontos no Coloron! Você consegue bater a minha pontuação?&amp;via=greghvns&amp;hashtags=coloron", "TweetWindow", "width=600px,height=300px,top=" + top + ",left=" + left);
+}
+
+  
+  
 
   /**
    * The greeting when the game begins
