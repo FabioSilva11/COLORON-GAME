@@ -50,17 +50,12 @@ generateTweet() {
   let url = encodeURIComponent('https://fabiosilva11.github.io/COLORON-GAME/');
   let text = encodeURIComponent('Eu fiz ' + this.score + ' pontos no Coloron! Você consegue bater a minha pontuação?');
   let hashtags = encodeURIComponent('coloron');
-  let via = 'greghvns';
+  let via = '0produtor';
   let twitter_url = `https://twitter.com/intent/tweet?url=${url}&text=${text}&via=${via}&hashtags=${hashtags}`;
   let top = $(window).height() / 2 - 150;
   let left = $(window).width() / 2 - 300;
   window.open(twitter_url, "TweetWindow", "width=600px,height=300px,top=" + top + ",left=" + left);
 }
-
-
-  
-  
-
   /**
    * The greeting when the game begins
    */
