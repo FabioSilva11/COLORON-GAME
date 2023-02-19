@@ -46,9 +46,6 @@ class Game {
     this.bounce();
   }
 
-  const game = {
-  // Defina outras propriedades e métodos do objeto 'game' aqui
-
   generateTweet() {
     const tweetUrl = "https://twitter.com/intent/tweet";
     const url = "https://fabiosilva11.github.io/COLORON-GAME/";
@@ -64,7 +61,6 @@ class Game {
     const tweet = `${tweetUrl}?url=${url}&text=${scoreText}&via=${via}&hashtags=${hashtags}`;
     window.open(tweet, "TweetWindow", options);
   }
-};
 
 
   /**
