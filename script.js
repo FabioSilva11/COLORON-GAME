@@ -46,11 +46,26 @@ class Game {
     this.bounce();
   }
 
+  const game = {
+  // Defina outras propriedades e métodos do objeto 'game' aqui
+
   generateTweet() {
-    let top = $(window).height() / 2 - 150;
-    let left = $(window).width() / 2 - 300;
-    window.open("https://twitter.com/intent/tweet?url=https://fabiosilva11.github.io/COLORON-GAME/&amp;text=I scored " + this.score + " points on Coloron! Can you beat my score?&amp;via=greghvns&amp;hashtags=coloron", "TweetWindow", "width=600px,height=300px,top=" + top + ",left=" + left);
+    const tweetUrl = "https://twitter.com/intent/tweet";
+    const url = "https://fabiosilva11.github.io/COLORON-GAME/";
+    const scoreText = `I scored ${this.score} points on Coloron! Can you beat my score?`;
+    const via = "greghvns";
+    const hashtags = "coloron";
+    const width = 600;
+    const height = 300;
+    const top = (window.innerHeight - height) / 2;
+    const left = (window.innerWidth - width) / 2;
+    const options = `width=${width}px,height=${height}px,top=${top},left=${left}`;
+
+    const tweet = `${tweetUrl}?url=${url}&text=${scoreText}&via=${via}&hashtags=${hashtags}`;
+    window.open(tweet, "TweetWindow", options);
   }
+};
+
 
   /**
    * The greeting when the game begins
