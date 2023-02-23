@@ -13,6 +13,19 @@ class Game {
     this.color = this.colors[0]; // the intial color of the ball
     this.prevColor = null; // used as a holder to prevent ball colors from repeating
   }
+  
+  toggleAudio() {
+    const audio = new Audio('musica.mp3');
+    audio.loop = true;
+    audio.autoplay = true;
+  
+    if (audio.paused) {
+      audio.currentTime = 0; // volta para o início da música
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
 
   /**
    * The game screen is scalable. I took 1200x800px as the initial scale.
@@ -153,6 +166,7 @@ generateTweet() {
     // reset timescale to normal as the game speeds up
     this.timeline.timeScale(1);
     this.balltween.timeScale(1);
+    game.toggleAudio();
   }
 
   stop() {
@@ -317,7 +331,7 @@ generateTweet() {
   }
 
   checkColor() {
-
+ 
     let ballPos = $('#ball').offset().left + $('#ball').width() / 2;
     let stickWidth = $('.stick').width();
     let score = this.score;
@@ -331,8 +345,8 @@ generateTweet() {
           $('#score').text(score);
           TweenMax.fromTo('#score', 0.5, { scale: 1.5 }, { scale: 1, ease: Elastic.easeOut.config(1.5, 0.5) });
         } else {
-
-          // you loose
+          
+          game.toggleAudio();
           game.stop();
 
         }
