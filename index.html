@@ -34,6 +34,7 @@
 
 
 <body>
+    <audio id="musica" src="musica.mp3" preload="auto"></audio>
 <!-- partial:index.partial.html -->
 <!--
 design by https://www.behance.net/vahanhovh
@@ -47,13 +48,20 @@ design by https://www.behance.net/vahanhovh
 
                 <div class="logo-holder">
                     <p class="logo">
-                        <span>C</span>
-                        <span>o</span>
-                        <span>l</span>
-                        <span>o</span>
-                        <span>r</span>
-                        <span>o</span>
-                        <span>n</span>
+                        <span style="color:red;">J</span>
+                        <span style="color:orange;">o</span>
+                        <span style="color:yellow;">g</span>
+                        <span style="color:green;">o</span>
+                        <span>  </span>
+                        <span style="color:blue;">d</span>
+                        <span style="color:indigo;">a</span>
+                        <span style="color:violet;">s</span>
+                        <span>  </span>
+                        <span style="color:red;">C</span>
+                        <span style="color:orange;">o</span>
+                        <span style="color:yellow;">r</span>
+                        <span style="color:green;">e</span>
+                        <span style="color:blue;">s</span>
                     </p>
                     <a class="play-button" href="#" onclick="game.start()">Jogar</a> <h4 class="hint">dica: a cor <span>vermelha</span> sempre vem primeiro</h4>
                 </div>
@@ -80,8 +88,8 @@ design by https://www.behance.net/vahanhovh
                     </p>
 
                     <div>
-                        <a class="play-again" href="#" onclick="game.start()">Play Again</a>
-                        <a class="main-menu" href="#" onclick="game.intro()">Menu</a>
+                        <a id="restart" class="play-again" href="#" onclick="game.start()">jogar novamente</a>
+                        <a id="stop" class="main-menu" href="#" onclick="game.intro()">Menu</a>
                     </div>
 
                 </div>
@@ -118,8 +126,33 @@ design by https://www.behance.net/vahanhovh
 
         </div>
 <!-- partial -->
+<script>
+  let musica = document.querySelector("#musica");
+  let botaoJogar = document.querySelector(".play-button");
+  botaoJogar.addEventListener("click", () => {
+    musica.play();
+  });
+  
+  let restart = document.querySelector("#restart");
+let botaoRestart = document.querySelector(".play-again");
+botaoRestart.addEventListener("click", () => {
+  musica.currentTime = 0; // Define o tempo atual como zero
+  musica.play(); // Reproduz a música
+});
+
+let stop = document.querySelector("#stop");
+let botaoStop = document.querySelector(".main-menu");
+botaoStop.addEventListener("click", () => {
+  musica.pause(); // Pausa a música
+});
+
+</script>
+
   <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script><script  src="./script.js"></script>
+
+<a class="play-button" href="#" onclick="game.start()">Jogar</a>
+
 
 </body>
 </html>
